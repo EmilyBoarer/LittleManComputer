@@ -1,0 +1,32 @@
+                INP
+                STA CONST
+                INP
+                STA INTERVAL
+LOOP            LDA SUM
+                ADD INTERVAL
+                STA SUM
+                LDA COUNTER
+                ADD ONE
+                STA COUNTER
+                LDA SUM
+                SUB CONST
+                BRZ PRINTEXACT 
+                BRP PRINTREMAINDER
+                BRA LOOP
+PRINTEXACT      LDA COUNTER
+                OUT
+                HLT
+PRINTREMAINDER  LDA COUNTER
+                SUB ONE
+                OUT
+                LDA INTERVAL
+                ADD CONST
+                SUB SUM
+                OUT
+                HLT
+CONST           DAT 
+INTERVAL        DAT
+COUNTER         DAT 0
+SUM             DAT 0
+ZERO            DAT 0
+ONE             DAT 1
